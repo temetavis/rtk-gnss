@@ -14,6 +14,7 @@ RTK correction providers and national GNSS reference station networks.
 | RTCM messages | `docs/04-rtcm-messages.md` + `exercises/rtcm/` | RTCM 3.x framing and how to parse a 1005 station coordinate message |
 | Coordinate systems | `docs/05-coordinate-systems.md` + `exercises/coords/` | WGS84, ETRS89, EUREF-FIN, ENU/local frames, UTM, heights |
 | RTK solver | `exercises/rtk_solver/` | A simplified single-baseline RTK engine, end to end |
+| Service health dashboard | `docs/06-service-health-dashboard.md` + `exercises/dashboard/` | What an RTK provider monitors; a mock mobile web dashboard |
 
 ## Quick start
 
@@ -30,6 +31,9 @@ python3 -m exercises.ntrip.client          # terminal 2
 
 # watch the RTK solver converge from float to fixed ambiguities
 python3 -m exercises.rtk_solver.simulate
+
+# run the mock service health dashboard (mobile web UI + JSON API)
+python3 -m exercises.dashboard.app    # http://127.0.0.1:8000/
 ```
 
 ## Suggested study order
@@ -42,6 +46,9 @@ python3 -m exercises.rtk_solver.simulate
    `exercises/rtk_solver/solver.py` — it implements float/fixed ambiguity
    resolution with integer least squares (LAMBDA-style) in pure Python.
 5. Finish with `docs/05-coordinate-systems.md` and the coordinate exercises.
+6. Skim `docs/06-service-health-dashboard.md`, run the dashboard, and read
+   `exercises/dashboard/service.py` — how a provider turns station telemetry
+   into healthy / degraded / down statuses.
 
 ## Real-world resources
 
